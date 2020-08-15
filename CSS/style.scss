@@ -1,0 +1,131 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+//マップ型変数breakpointsを定義
+$breakpoints: (
+    'sm': 'screen and (max-width: 575px)',
+    'md': 'screen and (max-width: 767px)',
+    'lg': 'screen and (max-width: 991px)',
+    'xl': 'screen and (max-width: 1199px)'
+) !default;
+
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+
+/*共通*/
+$font-color: #1a1a1a;
+$font-family-english: 'Open Sans', sans-serif;
+.html,body {
+    background-color: #FFF;
+    padding: 0;
+    margin: 0 auto;
+    color: $font-color;
+}
+
+img {
+    width: 100%;
+}
+
+.inner {
+    width: 90%;
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.section-title {
+    width: 100%;
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 2px solid gray;
+}
+
+
+/*========================
+header
+========================*/
+.nav-item {
+    margin-left: 20px;
+    transition: all 0.5s ease 0s;
+
+    &:hover {
+        cursor: pointer;
+        border-bottom: 1px solid #000;
+
+    }
+}
+
+/*========================
+Top
+========================*/
+.top {
+    background: transparent url(../IMG/top-img-2.jpg) no-repeat center center / contain;
+    height: 600px;
+    position: relative;
+    margin-top: 100px;
+
+    @include mq() {
+        background: transparent url(../IMG/top-img-2.jpg) no-repeat center center / cover;
+        margin-top: 80px;
+    }
+}
+
+.top-title-text {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px 0;
+    color: gray;
+    font-family: $font-family-english;
+
+    @include mq() {
+        font-size: 24px;
+    }
+}
+
+/*========================
+Profile
+========================*/
+.profile {
+    padding: 50px 0;
+}
+/*========================
+Content
+========================*/
+.content {
+    padding: 50px 0;
+}
+
+.card-img-top {
+    margin: 20px auto;
+}
+
+.card-1 {
+    height: 550px;
+}
+/*========================
+Contact
+========================*/
+.contact {
+    padding-top: 30px;
+}
+
+.contact-form {
+    text-align: center;
+}
+
+iframe {
+    width:90%;
+}
+
+.card-text {
+    font-size: 12px;
+}
